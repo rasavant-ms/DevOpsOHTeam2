@@ -7,10 +7,9 @@ podTemplate(label: 'builder',
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('userprofile') {
                             dir ("./apis/userprofile"){
-                                    sh "ls"
                                     sh "npm install"
-                                    sh "npm test"
-                                    sh "npm lint"
+                                    sh "npm run-script test"
+                                    sh "npm run-script lint"
                             }
                     }
                 }
