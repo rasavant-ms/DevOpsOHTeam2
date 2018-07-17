@@ -25,7 +25,7 @@ podTemplate(label: 'builder',
                         curl https://glide.sh/get | sh
                         glide install
                         go build
-                        #go test ./test
+                        go test ./test
                         """
                }
             }
