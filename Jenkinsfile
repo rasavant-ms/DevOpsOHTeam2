@@ -5,7 +5,8 @@ podTemplate(label: 'builder',
         node('builder') {
             stage('Build docker image') {
                 container('docker') {
-                        sh "cd apis/userprofile"
+                        sh "ls"
+                        sh "cd ./apis/userprofile"
                         sh "docker build . -t userProfile"
                     }
                 }
