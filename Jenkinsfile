@@ -21,8 +21,9 @@ podTemplate(label: 'builder',
                                     sh "curl https://glide.sh/get | sh"
                                     sh "glide install --skip-test"
                                     sh "glide update"
-                                    sh "go build -o main ."
+                                    sh "ls"
                                     sh "go test"
+                                    sh "go build -o main ."
                             }
                     }
                 }
