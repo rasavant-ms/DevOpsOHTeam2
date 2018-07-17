@@ -6,12 +6,13 @@ podTemplate(label: 'builder',
 
             ]) {
         node('builder') {
-            stage('poi') {
-                git url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'rjdev'
-                container('poi') {
-                            dir ("./apis/poi/web"){
-                                    sh "dotnet restore"
-                                    sh "dotnet publish -c Release -o out"
+            stage('userprofile') {
+                git 'https://github.com/wsf11/DevOpsOHTeam2.git'
+                container('userprofile') {
+                            dir ("./apis/userprofile"){
+                                    sh "npm install"
+                                    sh "npm run-script test"
+                                    sh "npm run-script lint"
                             }
                     }
             }
