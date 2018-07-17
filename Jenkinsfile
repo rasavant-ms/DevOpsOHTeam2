@@ -15,8 +15,7 @@ podTemplate(label: 'builder',
                     }
              stage('trips') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
-                container('gobuildci') {
-                   stage('Build and Test Trips API') {
+                container('trips') {
                          dir("./apis/trips") {
                                      sh """
                                      mkdir /go/src/github.com/Azure-Samples/openhack-devops-team -p
@@ -28,9 +27,8 @@ podTemplate(label: 'builder',
                                      go build
                                      #go test ./test
                                      """
-                          }
-                   }
+                         }
                }
-          }
-     }
+             }
+      }
 }
