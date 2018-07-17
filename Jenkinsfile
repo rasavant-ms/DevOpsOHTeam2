@@ -1,13 +1,14 @@
 podTemplate(label: 'builder',
             containers: [
-                    containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
+                    containerTemplate(name: 'userprofile', image: 'node:8-alpine', command: 'cat', ttyEnabled: true),
             ]) {
         node('builder') {
-            stage('Build docker image') {
+            stage('userprofile') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
-                container('docker') {
-                        sh "dockerd"
-                        sh "docker build ./apis/userprofile/ -t userprofile"
+                container('userprofile') {
+                        sh "npm install"
+                        sh "npm test"
+                        sh "npm lint"
                     }
                 }
             }
