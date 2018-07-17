@@ -34,12 +34,17 @@ podTemplate(label: 'builder',
             stage('poi') {
                 git url: 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('poi') {
-                            dir ("./apis/poi/web"){
-                                    sh "dotnet restore"
-                                    sh "dotnet publish -c Release -o out"
-                                    sh "cd .. && cd tests && dotnet test"
-                            }
-                    }
+                        dir ("./apis/poi/web"){
+                        sh "dotnet restore"
+                        sh "dotnet publish -c Release -o out"
+                        }
+                                dir ("./apis/poi/tests/UnitTests") {
+                                sh "dotnet test"
+                                }
+                                dir ("./apis/poi/tests/IntergrationTests") {
+                                sh "dotnet test"
+                                }
                 }
             }
+        }
 }
