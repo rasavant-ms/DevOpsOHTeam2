@@ -1,15 +1,14 @@
 podTemplate(label: 'builder',
             containers: [
-                    containerTemplate(name: 'userprofile', image: 'node:8-alpine', command: 'cat', ttyEnabled: true),
+                    containerTemplate(name: 'poi', image: 'microsoft/dotnet:2.1-aspnetcore-runtime', command: 'cat', ttyEnabled: true),
             ]) {
         node('builder') {
-            stage('userprofile') {
+            stage('poi') {
                 git url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'rjdev'
-                container('userprofile') {
-                            dir ("./apis/userprofile"){
-                                    sh "npm install"
-                                    sh "npm run-script test"
-                                    sh "npm run-script lint"
+                container('poi') {
+                            dir ("./apis/poi"){
+                                    bat "nuget restore poi.sln"
+                                    bat "\"${tool 'MSBuild'}\" poi.sln /p:Configuration=Release /p:Platform=\"Any CPU\"
                             }
                     }
                 }
