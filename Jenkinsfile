@@ -4,7 +4,7 @@ podTemplate(label: 'builder',
             ]) {
         node('builder') {
             stage('userprofile') {
-                git 'https://github.com/wsf11/DevOpsOHTeam2/tree/rjdev'
+                git url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'rjdev'
                 container('userprofile') {
                             dir ("./apis/userprofile"){
                                     sh "npm install"
