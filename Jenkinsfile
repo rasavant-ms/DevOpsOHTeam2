@@ -24,6 +24,7 @@ podTemplate(label: 'builder',
                                     sh "ls"
                                     sh "echo $GOROOT"
                                     sh "echo $GOPATH"
+                                    sh "go get"
                                     sh "go test"
                                     sh "go build -o main ."
                             }
