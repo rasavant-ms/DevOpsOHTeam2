@@ -6,7 +6,8 @@ podTemplate(label: 'builder',
             stage('userprofile') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('userprofile') {
-                        sh "cd ./apis/userprofile"
+                        dir "./apis/userprofile"
+                        sh "ls"
                         sh "npm install"
                         sh "npm test"
                         sh "npm lint"
