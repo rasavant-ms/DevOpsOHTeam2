@@ -8,6 +8,7 @@ podTemplate(label: 'builder',
                 container('poi') {
                             dir ("./apis/poi/web"){
                                     sh "dotnet restore"
+                                    sh "dotnet publish -c Release -o out"
                             }
                     }
                 }
