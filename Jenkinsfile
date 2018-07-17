@@ -16,7 +16,7 @@ podTemplate(label: 'builder',
              stage('trips') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('trips') {
-                            dir ("./apis/trips") {
+                            dir ("/go/src/github.com/Azure-Samples/openhack-devops-team/apis/trips") {
                                     sh "ls"
                                     sh "curl https://glide.sh/get | sh"
                                     sh "glide install --skip-test"
