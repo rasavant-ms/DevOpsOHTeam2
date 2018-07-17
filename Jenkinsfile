@@ -8,7 +8,7 @@ podTemplate(label: 'builder',
                 container('poi') {
                             dir ("./apis/poi"){
                                     bat "nuget restore poi.sln"
-                                    bat "\"${tool 'MSBuild'}\" poi.sln /p:Configuration=Release /p:Platform=\"Any CPU\"
+                                    bat "dotnet build"
                             }
                     }
                 }
