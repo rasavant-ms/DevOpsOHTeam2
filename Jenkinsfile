@@ -6,7 +6,7 @@ podTemplate(label: 'builder',
             stage('poi') {
                 git url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'rjdev'
                 container('poi') {
-                            dir ("./apis/poi/web"){
+                            dir ("./apis/poi"){
                                     sh "dotnet restore"
                                     sh "dotnet publish -c Release -o out"
                             }
