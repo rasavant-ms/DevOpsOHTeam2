@@ -1,6 +1,6 @@
 podTemplate(label: 'builder',
             containers: [
-                    containerTemplate(name: 'poi', image: 'microsoft/dotnet:2.1-aspnetcore-runtime', command: 'cat', ttyEnabled: true),
+                    containerTemplate(name: 'poi', image: 'microsoft/dotnet:2.1-sdk', command: 'cat', ttyEnabled: true),
             ]) {
         node('builder') {
             stage('poi') {
