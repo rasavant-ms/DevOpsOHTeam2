@@ -8,8 +8,8 @@ podTemplate(label: 'builder',
                 container('docker') {
                         sh "pwd"
                         sh "ls"
-                        sh "ls ./api/userprofile"
-                        sh "docker build ./api/userprofile/Dockerfile -t userprofile"
+                        sh "ls ./apis/userprofile"
+                        sh "docker build ./apis/userprofile/Dockerfile -t userprofile"
                     }
                 }
             }
