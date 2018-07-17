@@ -13,22 +13,23 @@ podTemplate(label: 'builder',
                                     sh "npm run-script lint"
                             }
                     }
+            }
              stage('trips') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('trips') {
-                         dir("./apis/trips") {
-                                     sh """
-                                     mkdir /go/src/github.com/Azure-Samples/openhack-devops-team -p
-                                     cp -R . /go/src/github.com/Azure-Samples/openhack-devops-team
-                                     cd /go/src/github.com/Azure-Samples/openhack-devops-team/apis/trips
-                                     ls
-                                     curl https://glide.sh/get | sh
-                                     glide install
-                                     go build
-                                     #go test ./test
-                                     """
-                         }
+                    dir("./apis/trips") {
+                        sh """
+                        mkdir /go/src/github.com/Azure-Samples/openhack-devops-team -p
+                        cp -R . /go/src/github.com/Azure-Samples/openhack-devops-team
+                        cd /go/src/github.com/Azure-Samples/openhack-devops-team/apis/trips
+                        ls
+                        curl https://glide.sh/get | sh
+                        glide install
+                        go build
+                        #go test ./test
+                        """
+                        }
                }
-             }
-      }
+            }
+        }
 }
