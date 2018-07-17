@@ -15,20 +15,22 @@ podTemplate(label: 'builder',
                     }
              stage('trips') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
-                container('trips') {
-                            dir ("./apis/trips") {
-                                    sh "ls"
-                                    sh "curl https://glide.sh/get | sh"
-                                    sh "glide install --skip-test"
-                                    sh "glide update"
-                                    sh "ls"
-                                    sh "go env"
-                                    sh "go get"
-                                    sh "go test"
-                                    sh "go build -o main ."
-                            }
-                    }
-                }
-            }
-        }
+                container('gobuildci') {
+                   stage('Build and Test Trips API') {
+                         dir("./apis/trips) {
+                                     sh """
+                                     mkdir /go/src/github.com/Azure-Samples/openhack-devops-team -p
+                                     cp -R . /go/src/github.com/Azure-Samples/openhack-devops-team
+                                     cd /go/src/github.com/Azure-Samples/openhack-devops-team/apis/trips
+                                     ls
+                                     curl https://glide.sh/get | sh
+                                     glide install
+                                     go build
+                                     #go test ./test
+                                     """
+                          }
+                   }
+               }
+          }
+     }
 }
