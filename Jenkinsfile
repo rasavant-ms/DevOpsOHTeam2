@@ -22,6 +22,8 @@ podTemplate(label: 'builder',
                                     sh "glide install --skip-test"
                                     sh "glide update"
                                     sh "ls"
+                                    sh "echo $GOROOT"
+                                    sh "echo $GOPATH"
                                     sh "go test"
                                     sh "go build -o main ."
                             }
