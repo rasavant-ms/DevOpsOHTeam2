@@ -6,10 +6,9 @@ podTemplate(label: 'builder',
             stage('Build docker image') {
                 git 'https://github.com/wsf11/DevOpsOHTeam2.git'
                 container('docker') {
-                        sh "pwd"
+                        sh "cd ./apis/userprofile"
                         sh "ls"
-                        sh "ls ./apis/userprofile"
-                        sh "docker build ./apis/userprofile/Dockerfile -t userprofile"
+                        sh "docker build . -t userprofile"
                     }
                 }
             }
