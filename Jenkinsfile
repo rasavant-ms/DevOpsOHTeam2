@@ -41,5 +41,4 @@ podTemplate(label: 'builder',
                     }
                 }
             }
-        }
 }
