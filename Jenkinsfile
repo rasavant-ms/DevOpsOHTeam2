@@ -7,8 +7,8 @@ podTemplate(label: 'builder',
                 git url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'rjdev'
                 container('poi') {
                             dir ("./apis/poi"){
-                                    bat "nuget restore poi.sln"
-                                    bat "dotnet build"
+                                    sh "nuget restore poi.sln"
+                                    sh "dotnet build"
                             }
                     }
                 }
