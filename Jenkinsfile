@@ -21,8 +21,8 @@ podTemplate(label: 'builder',
                                     sh "curl https://glide.sh/get | sh"
                                     sh "glide install --skip-test"
                                     sh "glide update"
-                                    sh "CGO_ENABLED=0 GOOS=linux go build -o main ."
-                                    sh "ls"
+                                    sh "go build -o main ."
+                                    sh "go test"
                             }
                     }
                 }
