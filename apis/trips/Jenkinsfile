@@ -2,7 +2,7 @@ node('master') {
     stage('trips') {
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
         dir("./apis/trips") {
-            sh "docker build . -t trips"
+            sh "docker build . -t ohdrteam02acr.azurecr.io/api-trips/trips:1.0"
         }
     }
 }
