@@ -1,0 +1,9 @@
+node('master') {
+    stage('trips') {
+        git 'https://github.com/wsf11/DevOpsOHTeam2.git'
+        dir("./apis/userprofile") {
+            sh "docker build . -t userprofile"
+        }
+    }
+}
+
