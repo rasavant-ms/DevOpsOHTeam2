@@ -1,0 +1,10 @@
+
+node('master') {
+    stage('poi') {
+        git 'https://github.com/wsf11/DevOpsOHTeam2.git'
+        dir("./apis/poi/web") {
+            sh "docker build . -t poi"
+        }
+    }
+}
+
