@@ -8,6 +8,7 @@ node('master') {
                 sh 'docker login ohdrteam02acr.azurecr.io -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
                 sh 'docker push $IMAGE_NAME'
             }
+            sh "helm upgrade api-trip -f helm/values.yaml helm/"
         }
     }
 }
