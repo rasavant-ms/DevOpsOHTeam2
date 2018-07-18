@@ -32,11 +32,11 @@ pipeline {
             IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-user:1.0'
           }
           steps {
+            git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
             dir(path: './apis/userprofile') {
               sh 'docker build . -t $IMAGE_NAME'
             }
 
-            git(url: 'https://github.com/wsf11/j2.git', branch: 'lumirand')
           }
         }
       }
