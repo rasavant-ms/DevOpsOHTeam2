@@ -1,9 +1,6 @@
-
+env.IMAGE_NAME='ohdrteam02acr.azurecr.io/api-user/userprofile:1.0'
 node('master') {
     stage('trips') {
-        environment {
-            IMAGE_NAME='ohdrteam02acr.azurecr.io/api-user/userprofile:1.0'
-        }
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
         dir("./apis/userprofile") {
             sh "docker build . -t $IMAGE_NAME"
