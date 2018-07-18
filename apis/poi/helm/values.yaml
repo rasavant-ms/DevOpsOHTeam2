@@ -4,8 +4,8 @@
 
 replicaCount: 2
 repository:
-  image: acrreplace.azurecr.io/devopsoh/imagereplace
-  tag: latest
+  image: ohdrteam02acr.azurecr.io/devopsoh/api-poi
+  tag: 1.0
   pullPolicy: Always
 image:
   name: mydrive-poi
