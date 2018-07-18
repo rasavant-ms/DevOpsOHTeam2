@@ -1,9 +1,13 @@
+env.IMAGE_NAME='ohdrteam02acr.azurecr.io/devopsoh/api-trip:1.0'
 node('master') {
     stage('trips') {
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
         dir("./apis/trips") {
             sh "docker build . -t ohdrteam02acr.azurecr.io/api-trips/trips:1.0"
+            withCredentials([azureServicePrincipal('Default_SP')]) {
+                sh 'docker login ohdrteam02acr.azurecr.io -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
+                sh 'docker push $IMAGE_NAME'
+            }
         }
     }
 }
-
