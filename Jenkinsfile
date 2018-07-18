@@ -1,6 +1,6 @@
 
 node('master') {
-    stages {
+    steps {
         stage('Build Docker Images') {
             parallel {
                 stage('userprofile') {
