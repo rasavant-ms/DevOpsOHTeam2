@@ -36,7 +36,7 @@ pipeline {
               sh 'docker build . -t $IMAGE_NAME'
             }
 
-            git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
+            git(url: 'https://github.com/wsf11/j2.git', branch: 'lumirand')
           }
         }
       }
