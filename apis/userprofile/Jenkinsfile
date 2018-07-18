@@ -1,9 +1,11 @@
 
 node('master') {
     stage('trips') {
+        environment {
+            IMAGE_NAME='ohdrteam02acr.azurecr.io/api-user/userprofile:1.0'
+        }
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
         dir("./apis/userprofile") {
-            sh "IMAGE_NAME=ohdrteam02acr.azurecr.io/api-user/userprofile:1.0"
             sh "docker build . -t $IMAGE_NAME"
             withCredentials([azureServicePrincipal('Default_SP')]) {
                 sh 'docker login ohdrteam02acr.azurecr.io -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
