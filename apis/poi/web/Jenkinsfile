@@ -8,6 +8,8 @@ node('master') {
                 sh 'docker login ohdrteam02acr.azurecr.io -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
                 sh 'docker push $IMAGE_NAME'
             }
+        }
+        dir("./apis/poi") {
             sh "helm upgrade api-poi -f helm/values.yaml helm/"
         }
     }
