@@ -26,6 +26,7 @@ namespace poi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) {
             //used to read env variables for host/port
+            // Testing autodeployment of Jenkins build
             var configuration = new ConfigurationBuilder()
             .AddEnvironmentVariables()
             .Build();
