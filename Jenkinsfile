@@ -11,6 +11,10 @@ pipeline {
           sh 'docker build . -t $IMAGE_NAME'
         }
 
+        dir(path: './apis/poi/tests/UnitTests') {
+          sh 'dotnet restore'
+        }
+
       }
     }
     stage('CreateImage_poi') {
