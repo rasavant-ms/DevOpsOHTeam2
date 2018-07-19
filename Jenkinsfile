@@ -38,6 +38,7 @@ pipeline {
       steps {
         git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
         dir(path: './apis/userprofile') {
+          sh 'npm install'
           sh 'npm run-script test'
         }
 
