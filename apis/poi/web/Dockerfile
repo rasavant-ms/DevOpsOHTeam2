@@ -12,12 +12,12 @@ COPY ./appsettings.*.json /app/out/
 COPY ./appsettings.json /app/out/
 
 
-FROM microsoft/dotnet
+### FROM microsoft/dotnet
 
-WORKDIR /app
-COPY . .
-RUN dotnet restore
-RUN dotnet test
+#WORKDIR /app
+#COPY . .
+#RUN dotnet restore
+#RUN dotnet test
 
 # build runtime image
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
