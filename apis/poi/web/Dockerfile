@@ -11,6 +11,8 @@ RUN dotnet publish -c Release -o out
 COPY ./appsettings.*.json /app/out/
 COPY ./appsettings.json /app/out/
 
+RUN dotnet test
+
 # build runtime image
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
 WORKDIR /app
