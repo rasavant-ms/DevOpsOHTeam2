@@ -1,4 +1,4 @@
-env.IMAGE_NAME='ohdrteam02acr.azurecr.io/devopsoh/api-poi:1.0'
+env.IMAGE_NAME='ohdrteam02acr.azurecr.io/devopsoh/api-poi:a'
 node('master') {
     stage('poi') {
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
