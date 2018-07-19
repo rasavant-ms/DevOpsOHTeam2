@@ -29,7 +29,8 @@ pipeline {
     }
     stage('Deploy_poi') {
       steps {
-        sh 'helm upgrade api-trip -f helm/values.yaml helm/'
+        sh '''helm repo update
+helm upgrade api-trip -f helm/values.yaml helm/'''
       }
     }
   }
