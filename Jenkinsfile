@@ -27,15 +27,6 @@ pipeline {
 
       }
     }
-    stage('Deploy_poi') {
-      steps {
-        dir(path: './apis/trips') {
-          sh 'helm repo update'
-          sh 'helm upgrade api-trip -f helm/values.yaml helm/'
-        }
-
-      }
-    }
     stage('Test_poi') {
       agent {
         docker {
