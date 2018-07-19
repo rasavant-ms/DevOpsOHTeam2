@@ -12,7 +12,6 @@ pipeline {
           sh 'docker build . -t $IMAGE_NAME'
         }
 
-        sh 'npm run-script test'
       }
     }
     stage('CreateImage_poi') {
@@ -32,19 +31,14 @@ pipeline {
     stage('Test_poi') {
       agent {
         docker {
-          image 'microsoft/dotnet:2.1-sdk'
+          image 'node:8-alpine'
         }
 
       }
       steps {
         git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
-        dir(path: './apis/poi/web') {
-          sh 'dotnet restore'
-          sh 'dotnet publish -c Release -o out'
-        }
-
-        dir(path: './apis/poi/tests/UnitTests') {
-          sh 'dotnet test'
+        dir(path: './apis/userprofile') {
+          sh 'npm run-script test'
         }
 
       }
