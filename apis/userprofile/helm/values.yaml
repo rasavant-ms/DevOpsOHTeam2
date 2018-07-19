@@ -4,7 +4,7 @@
 replicaCount: 2
 repository:
   image: ohdrteam02acr.azurecr.io/devopsoh/api-user
-  tag: 1.0
+  tag: a
   pullPolicy: Always
 image:
   name: mydrive-user
@@ -18,7 +18,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   rules:
     endpoint:
-      host: changeme
+      host: akstraefikohdrteam02.westus.cloudapp.azure.com
       paths:
       - path: /api/user
         serviceName: api-user-svc
