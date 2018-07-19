@@ -41,5 +41,20 @@ pipeline {
         }
       }
     }
+    stage('Deploy_userprofile') {
+      environment {
+        Bindings = 'azureServicePrincipal(\'Default_SP\')'
+        params = 'azureServicePrincipal(\'Default_SP\')'
+      }
+      steps {
+        script {
+          withCredentials([azureServicePrincipal('Default_SP')]) {
+            sh 'docker login ohdrteam02acr.azurecr.io -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET'
+            sh 'docker push $IMAGE_NAME'
+          }
+        }
+
+      }
+    }
   }
 }
