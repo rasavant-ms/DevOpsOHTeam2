@@ -14,6 +14,9 @@ pipeline {
       }
     }
     stage('Deploy_poi') {
+      environment {
+        IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-user:1.0'
+      }
       steps {
         script {
           withCredentials([azureServicePrincipal('Default_SP')]) {
