@@ -2,12 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Build_poi') {
-      agent {
-        docker {
-          image 'node:8-alpine'
-        }
-
-      }
+      agent any
       environment {
         IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-user:1.1'
       }
