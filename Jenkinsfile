@@ -3,18 +3,15 @@ pipeline {
   stages {
     stage('Build_poi') {
       environment {
-        IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-poi:1.0'
+        IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-user:1.1'
       }
       steps {
         git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
-        dir(path: './apis/poi/web') {
+        dir(path: './apis/userprofile') {
           sh 'docker build . -t $IMAGE_NAME'
         }
 
-        dir(path: './apis/poi/tests/UnitTests') {
-          sh 'dotnet restore'
-        }
-
+        sh 'npm run-script test'
       }
     }
     stage('CreateImage_poi') {
