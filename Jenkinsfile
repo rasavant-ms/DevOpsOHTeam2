@@ -13,7 +13,7 @@ pipeline {
 
       }
     }
-    stage('Deploy_poi') {
+    stage('CreateImage_poi') {
       environment {
         IMAGE_NAME = 'ohdrteam02acr.azurecr.io/devopsoh/api-user:1.0'
       }
@@ -25,6 +25,11 @@ pipeline {
           }
         }
 
+      }
+    }
+    stage('Deploy_poi') {
+      steps {
+        sh 'helm upgrade api-trip -f helm/values.yaml helm/'
       }
     }
   }
