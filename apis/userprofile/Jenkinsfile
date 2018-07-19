@@ -1,4 +1,4 @@
-env.IMAGE_NAME='ohdrteam02acr.azurecr.io/devopsoh/api-user:a'
+env.IMAGE_NAME='ohdrteam02acr.azurecr.io/devopsoh/api-user:1.1'
 node('master') {
     stage('trips') {
         git 'https://github.com/wsf11/DevOpsOHTeam2.git'
