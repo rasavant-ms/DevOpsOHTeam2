@@ -37,7 +37,7 @@ pipeline {
       steps {
         git(url: 'https://github.com/wsf11/DevOpsOHTeam2.git', branch: 'lumirand')
         dir(path: './apis/poi/web') {
-          sh 'sudo dotnet restore'
+          sh 'dotnet restore'
           sh 'dotnet publish -c Release -o out'
         }
 
